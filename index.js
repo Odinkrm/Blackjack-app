@@ -1,5 +1,8 @@
 let cards = [];
 let sum = 0;
+let isAlive = false;
+let hasBlackJacked = false;
+let message = "";
 
 function generateRandomNum() {
   let randomNum = Math.floor(Math.random() * 13 + 1);
@@ -23,6 +26,7 @@ function updateDrawnCards() {
   }
 }
 function initiateGame() {
+  isAlive = true;
   let card1 = generateRandomNum();
   let card2 = generateRandomNum();
   cards.push(card1, card2);
