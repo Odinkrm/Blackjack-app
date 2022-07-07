@@ -19,16 +19,16 @@
       <hr />
       <h2 id="game-state">Do you want to draw a new card?</h2>
       <ul class="cards-info">
-        <li id="drawn-cards">Cards: 2 10</li>
+        <li id="drawn-cards"></li>
         <hr />
-        <li id="sum-cards">Sum: 12</li>
+        <li id="sum-cards"></li>
       </ul>
       <div class="play-buttons">
-        <button>Start Game</button>
+        <button onclick="initiateGame()" id="start-btn">Start Game</button>
         <br />
-        <button>New Card</button>
+        <button onclick="getCard()" id="new-card-btn">New Card</button>
       </div>
     </div>
-    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
