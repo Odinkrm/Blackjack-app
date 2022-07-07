@@ -11,22 +11,23 @@ function generateRandomNum() {
     return randomNum;
   }
 }
-function updateSum() {
-  for (let i = 0; i < cards.length; i++) {
-    sum += cards[i];
-  }
+function updateSum(number) {
+  sum += number;
   document.getElementById("sum-cards").innerText = sum;
 }
 function updateDrawnCards() {
   let drawnCards = document.getElementById(`drawn-cards`);
+  drawnCards.textContent = "Cards: ";
   for (let i = 0; i < cards.length; i++) {
-    drawnCards.innerHTML = `${cards[i]} ,`;
+    drawnCards.textContent += cards[i] + " ";
   }
 }
 function initiateGame() {
   let card1 = generateRandomNum();
-  cards.push(card1);
-  updateSum();
+  let card2 = generateRandomNum();
+  cards.push(card1, card2);
+  updateSum(card1);
+  updateSum(card2);
   updateDrawnCards();
   document.getElementById("start-btn").style.visibility = "hidden";
 }
