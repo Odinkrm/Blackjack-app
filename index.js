@@ -1,7 +1,7 @@
 let cards = [];
 let sum = 0;
 let isAlive = false;
-let hasBlackJacked = false;
+let hasBlackJack = false;
 let message = "";
 
 function generateRandomNum() {
@@ -33,5 +33,21 @@ function initiateGame() {
   updateSum(card1);
   updateSum(card2);
   updateDrawnCards();
-  document.getElementById("start-btn").style.visibility = "hidden";
+  document.getElementById("start-btn").style.display = "none";
+}
+function getCard() {
+  let gameStatetext = document.getElementById(`message`);
+  if (sum > 21) {
+    gameStatetext.textContent = "Sorry, you lost!";
+    document.getElementById("new-card-btn").style.display = "none";
+    isAlive = false;
+  } else if (sum === 21) {
+    gameStatetext.textContent = "Congrats! You have won";
+    hasBlackJack = true;
+  } else if (isAlive === true && hasBlackJack === false) {
+    newCard = generateRandomNum();
+    cards.push(newCard);
+    updateDrawnCards();
+    updateSum(newCard);
+  }
 }
